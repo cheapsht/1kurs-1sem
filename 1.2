@@ -9,18 +9,17 @@ double getDuymi(double const lengthCM);
 
 /**
 * @brief Точка входа в программу
-* @return возвращает 0, если программа выполенена корректна
-*/
+* @return возвращает 0, если программа выполенена корректно*/
 int main()
 {
-	double lengthCM;
-	printf("введите длину в см:");
-	scanf_s("%lf", &lengthCM);
-	printf("длина в дюймах равна %.2lf", getDuymi(lengthCM));
-	return 0;
+    double lengthCM;
+    printf("введите длину в см:");
+    scanf("%lf", &lengthCM);
+    printf("длина в дюймах равна %.2lf", getDuymi(lengthCM));
+    return 0;
 
 }
 double getDuymi(double const lengthCM)
 {
-	return lengthCM * 2.5;
+    return lengthCM * 2.54;
 }
