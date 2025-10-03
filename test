@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <stdlib.h>
+double getStrypeDOWN(const double a, const double b, const double c);
+double getStrypeUP(const double a, const double b, const double c);
+double getChoice(int choice, double const a, double const b, double const c);
+double getError( int choice, double const a, double const b, double const c)
+int main()
+{
+	double a;
+	double b;
+	double c;
+	int choice;
+	
+	printf("введите переменную a:");
+	scanf_s("%lf", &a);
+	printf("введите переменную b:");
+	scanf_s("%lf", &b);
+	printf("введите переменную c:");
+	scanf_s("%lf", &c);
+	printf("выберите порядок чисел: 1(умножение),2(сумма) ");
+	scanf_s("%d", &choice);
+
+	printf("Результат: %.2lf\n",getChoice(choice,a,b,c );
+	return 0;
+	
+}
+double getStrypeDOWN(const double a, const double b, const double c)
+{
+	return a * b * c;
+}
+double getStrypeUP(const double a, const double b, const double c)
+{
+	return a + b + c;
+}
+double getChoice(int choice, const double a, const double b, const double c)
+{
+	if (choice == 1)
+	{
+		return getStrypeDOWN(a, b, c);
+	}
+	else if (choice == 2)
+	{
+		return getStrypeUP(a, b, c);
+	}
+	if (choice!= 1 && choice!= 2)
+	{
+		printf("error");
+		return getError(choice, a, b, c);
+	}
+}
