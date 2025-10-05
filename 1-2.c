@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <math.h>
+/**
+* @brief переводит длину из см в дюймы
+* @param lengthCM длина в см
+* @return возвращает расчитанную длину в дюймах
+*/
+double getDuymi(double const lengthCM);
+
+/**
+* @brief Точка входа в программу
+* @return возвращает 0, если программа выполенена корректно*/
+
+int main()
+{
+    double lengthCM;
+    printf("введите длину в см:");
+    scanf("%lf", &lengthCM);
+    printf("длина в дюймах равна %.2lf", getDuymi(lengthCM));
+    return 0;
+
+}
+double getDuymi(double const lengthCM)
+{
+    return lengthCM * 2.54;
+}
