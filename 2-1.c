@@ -18,57 +18,46 @@ double getStrypeUP(double min_num, double middle_num, double max_num);
  */
 double getStrypeDOWN(double min_num, double middle_num, double max_num);
 /**
- * @brief даёт выбрать пользователю тип сортировки
- * @param min_num минимальное значение из трех
- * @param middle_num среднее значение из трех
- * @param max_num максимальное значение из трех
- * @param choice значения ввода (1 или 2)
- * @return возвращает выбор пользователя и выбранную сортировку
+ * @brief считывает значение,
+ * введенное с клавиатуры с проверкой ввода
+ * @return считанное значение
  */
-double getChoice(int choice, double min_num, double middle_num, double max_num);
+double getValue();
+/**
+@brief StrypeUP - сортировка по возрастанию
+@brief StrypeDOWN - сортировка по убыванию
+*/
+enum {StrypeUP, StrypeDOWN};
 /**
  * @brief Точка входа в программу
  * @return возвращает 0, если программма выполнена корректно
  */
 int main(void)
 {
-    double a, b, c;
-    int choice;
-    
-    printf("введите переменную a:");
-    if (scanf("%lf", &a) != 1)/* если в программу ввести не число , она экстренно завершает работу*/
-    {
-        printf("Ошибка ввода!\n");
-        abort();
-    }
-    
-    printf("введите переменную b:");
-    if (scanf("%lf", &b) != 1)/* если в программу ввести не число , она экстренно завершает работу*/
-    {
-        printf("Ошибка ввода!\n");
-        abort();
-    }
-    
-    printf("введите переменную c:");
-    if (scanf("%lf", &c) != 1)/* если в программу ввести не число , она экстренно завершает работу*/
-    {
-        printf("Ошибка ввода!\n");
-        abort();
-    }
-    
-
+    printf("Введите переменную а : ");
+    double a = getValue();
+    printf("Введите переменную b : ");
+    double b = getValue();
+    printf("Введите переменную c : ");
+    double c = getValue();
     double max_num = fmax(fmax(a, b), c);
     double min_num = fmin(fmin(a, b), c);
     double middle_num = a + b + c - max_num - min_num;
     
-    printf("выберите порядок чисел: 1(по возрастанию),2(по убыванию)\n");
-    if (scanf("%d", &choice) != 1)/* если в программу ввести не число , она экстренно завершает работу*/
+    printf("выберите порядок чисел: 0(по возрастанию),1(по убыванию) : ");
+    int choice = (int) getValue();
+    switch(choice)
     {
-        printf("Ошибка ввода!\n");
-        abort();
+        case StrypeUP:
+           return getStrypeUP(min_num,  middle_num, max_num);
+            break;
+        case StrypeDOWN:
+            return getStrypeDOWN(min_num,  middle_num, max_num);
+            break;
+        default:
+            printf("Неправильный выбор");
+            abort();
     }
-    
-    return getChoice(choice, min_num, middle_num, max_num);
 }
 
 double getStrypeUP(double min_num, double middle_num, double max_num)
@@ -82,21 +71,15 @@ double getStrypeDOWN(double min_num, double middle_num, double max_num)
     printf("Сортировка по убыванию: %.2lf, %.2lf, %.2lf\n", max_num, middle_num, min_num);
     return 0;
 }
-
-double getChoice(int choice, double min_num, double middle_num, double max_num)
+double getValue()
 {
-    if (choice == 1)
+    double value = 0;
+    if (!scanf("%lf",&value))
     {
-        getStrypeUP(min_num, middle_num, max_num);
-    }
-    else if (choice == 2)
-    {
-        getStrypeDOWN(min_num, middle_num, max_num);
-    }
-    else
-    {
-        printf("Неверный ввод, программа завершена");/* если ввести числа  не подходящие под программу */
+        printf("Неверный ввод!");
         abort();
     }
-    return 0;
+    return value;
 }
+
+
