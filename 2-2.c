@@ -1,6 +1,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
+#include <float.h>
+#include <stdbool.h>
 /**
  @brief расчитывает значение функции Y
  @param a значение переменной a
@@ -33,7 +35,7 @@ double getY(double const a,double const x)
     {
         return pow(a * x + 1, 1.0/3.0);
     }
-    else if  (x == 0.5)
+    else if  (fabs(x - 0.5) < DBL_EPSILON)
     {
         return a*x + 3;
     }
