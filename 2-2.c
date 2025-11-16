@@ -33,7 +33,7 @@ double getY(double const a,double const x)
 {
     if (x<0.5)
     {
-        return pow(a * x + 1, 1.0/3.0);
+        return cbrt(a * x + 1);
     }
     else if  (fabs(x - 0.5) < DBL_EPSILON)
     {
