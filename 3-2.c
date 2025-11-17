@@ -39,10 +39,6 @@ double getRecurent(const int i);
  * @param value - проверяемое значение
  */
 void checkPositive(const double value);
-/**
- * @brief Точка входа в программу
- * @return 0, если программа выполнена корректно, иначе 1
- */
 
 /**
  * @brief расчитывает факториал числа
@@ -50,6 +46,11 @@ void checkPositive(const double value);
  * @return расчитывает значение
 */
 long factorial(const int k);
+/**
+ * @brief Точка входа в программу
+ * @return 0, если программа выполнена корректно, иначе 1
+ */
+
 int main()
 {
     printf("Введите n:");
