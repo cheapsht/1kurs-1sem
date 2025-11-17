@@ -43,6 +43,12 @@ void checkPositive(const double value);
  * @brief Точка входа в программу
  * @return 0, если программа выполнена корректно, иначе 1
  */
+
+/**
+ * @brief расчитывает факториал числа
+ * @param k - заданное число
+ * @return расчитывает значение
+*/
 long factorial(const int k);
 int main()
 {
