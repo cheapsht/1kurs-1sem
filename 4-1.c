@@ -91,11 +91,10 @@ int main()
             break;
     }
     printArray(arr, size);
-    findChetElementsMoreFive (arr,size);
-    EX2(arr,size);
-    EX3(arr,size);
-
     int* copyArr = copyArray(arr,size);
+    findChetElementsMoreFive (copyArr,size);
+    EX2(copyArr,size);
+    EX3(copyArr,size);
     return 0;
 }
 int Value()
