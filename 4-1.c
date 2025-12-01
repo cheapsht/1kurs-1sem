@@ -34,7 +34,7 @@ void fillRandom(int* arr, const size_t size);
  * @param arr указатель на массив для заполнения
  * @param size размер массива
  */
-void findChetElementsMoreFive (int* arr, const size_t size);
+void findChetElementsMoreFive (const int* arr, const size_t size);
 /**
  * @brief создает копию массива
  * @param arr указатель на исходный массив
@@ -47,13 +47,19 @@ int* copyArray(const int* arr, const size_t size);
  * @param arr указатель на массив для заполнения
  * @param size размер массива
  */
-void EX2(int* arr, const size_t size);
+void EX2(const int* arr, const size_t size);
 /**
  * @brief находит нечетные,кратные трем элементы и умножает их значение на порядковый номер
  * @param arr указатель на массив для заполнения
  * @param size размер массива
  */
 void EX3(int* arr, const size_t size);
+/**
+ * @brief освбождает память и выводит ошибку
+ * @param arr массив для освобождения
+ * @param message сообщение об ошибке
+ */
+void handleError(int* arr, char* message);
 /**
 @brief RANDOM -  заполняет массив случайными числами
 @brief MANUAL - заполняет массив числами введенными с клавиатуры
@@ -70,10 +76,9 @@ int main()
     size_t size = getSize("Введите размер массива:  ");
     int* arr = malloc(size * sizeof(int));
     if (arr == NULL)
-    {
-        printf("error");
-        exit(1);
-    }
+        {
+            handleError(NULL, "Ошибка выделения памяти!");
+        }
     printf("Выберите способ заполнения массива:\n"
             "%d случайными числамиб %d вручную ", RANDOM, MANUAL);
     int choice = Value();
@@ -95,6 +100,7 @@ int main()
     findChetElementsMoreFive (copyArr,size);
     EX2(copyArr,size);
     EX3(copyArr,size);
+    free(arr);
     return 0;
 }
 int Value()
@@ -154,7 +160,7 @@ size_t getSize(char* message)
     }
     return (size_t)value;
 }
-void findChetElementsMoreFive (int* arr, const size_t size)
+void findChetElementsMoreFive(const int* arr, const size_t size)
 {
     int result = 1;
     int found = 0;
@@ -177,25 +183,24 @@ void findChetElementsMoreFive (int* arr, const size_t size)
     }
     
 }
-void EX2(int* arr, const size_t size)
+void EX2(const int* arr, const size_t size)
 {
     int A = 0;
     int count = 0;
-    int found = 0;
     for  (size_t i = 0; i<size; i++)
     {
         if (arr[i] % 2 != 0 && abs(arr[i]) > A)
         {
             printf("задание 2) найдены нечетные элементы, по модулю превосходящие A : %d\n",arr[i]);
             count++;
-            found = 1;
+            count = 1;
         }
     }
-    if (found)
+    if (count==1)
     {
         printf("задание 2) количество нечетных элементов,по модулю превосходящие A : %d\n",count);
     }
-    else
+    if (count==0)
     {
         printf("задание 2) Подходящие элементы не найдены\n");
     }
@@ -227,4 +232,13 @@ void EX3(int* arr, const size_t size)
     {
         printf("Элементы кратные 3 не найдены\n");
     }
+}
+void handleError(int* arr, char* message)
+{
+    if (arr != NULL)
+    {
+        free(arr);
+    }
+    fprintf(stderr, "%s\n", message);
+    exit(1);
 }
