@@ -193,10 +193,9 @@ void EX2(const int* arr, const size_t size)
         {
             printf("задание 2) найдены нечетные элементы, по модулю превосходящие A : %d\n",arr[i]);
             count++;
-            count = 1;
         }
     }
-    if (count==1)
+    if (count)
     {
         printf("задание 2) количество нечетных элементов,по модулю превосходящие A : %d\n",count);
     }
