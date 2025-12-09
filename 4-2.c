@@ -77,8 +77,6 @@ enum{EEX1 =1 , EEX2 = 2, EEX3 =3};
  */
 int main()
 {
-    printf("Введите параметр A : ");
-    int A = Value();
     size_t size = getSize("Введите размер массива:  ");
     int* arr = malloc(size * sizeof(int));
     if (arr == NULL)
