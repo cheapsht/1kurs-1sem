@@ -113,10 +113,10 @@ int main()
             replaceLastElement (copyArr,size);
             break;
         case EEX2:
-            removeSameElements(copyArr,size);
+            newArrayWRules(copyArr,size);
             break;
         case EEX3:
-            newArrayWRules(copyArr,size);
+            removeSameElements(copyArr,size);
             break;
         default:
             printf("error");
@@ -214,21 +214,35 @@ void newArrayWRules(int* arr,const size_t size)
 }
 
 
-void removeSameElements(int* arr,size_t size)
+void removeSameElements(int* arr, size_t size)
 {
-    printf("Преобразование массива из %zu элементов\n", size);
-    
-    for (size_t i = 0; i < size; i++) {
-        int value = arr[i];  // Сохраняем исходное значение
-        
-        if (value % 2 == 0) {
-            arr[i] = value * (i + 1);
-        } else {
-            arr[i] = value * (-1);
+    int found = 0;
+    for (size_t i = 0; i < size; i++)
+    {
+        if (arr[i] % 11 == 0)
+        {
+            printf("найдено число с одинаковыми цифрами: %d\n", arr[i]);
+            found = 1;
+            arr[i] = 0;
         }
     }
     
-    printf("Преобразование завершено\n");
+    if (found)
+    {
+        printf("измененный масив без чисел с одинаковым цифрами : ");
+        for (size_t i = 0; i < size; i++)
+        {
+            if (arr[i] != 0)
+            {
+                printf("%d ", arr[i]);
+            }
+        }
+        printf("\n");
+    }
+    else
+    {
+        printf("не найдено\n");
+    }
 }
 void handleError(int* arr, char* message)
 {
