@@ -48,7 +48,7 @@ double  getValue()
     return value;
 }
 
-double findDistance(double m1_ton, double m2_ton, double F)
+double findDistance(const double m1_ton, const double m2_ton, const double F)
 {
     const double G = 6.67430e-11; // гравитационная постоянная
     double m1_kg = m1_ton * 1000;
