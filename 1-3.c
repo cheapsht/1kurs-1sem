@@ -15,7 +15,7 @@ double getValue();
 * @param F - коэффицен для получения силы притяжения
 * @return возвращает расчитанное значение
 */
-double findDistance(double m1_ton, double m2_ton, double F);
+double findDistance(const double m1_ton, const double m2_ton, const double F);
 /**
  * @brief Точка входа в программу
  * @return 0, если программа выполнена корректно, иначе 1
