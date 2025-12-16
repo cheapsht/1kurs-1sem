@@ -44,7 +44,7 @@ int main(void)
     double x2 = cos(x);
     printf("cos x = %.2lf\n",x2);
     double x3 = log(x);
-    if (log(x)>0)
+    if (x>0)
     {
         printf("log x находится в пределах области значений");
         printf("ln(x) x = %.2lf\n",x3);
@@ -76,13 +76,13 @@ int main(void)
 
 }
 
-double getStrypeUP(double min_num, double middle_num, double max_num)
+double getStrypeUP(const double min_num, const double middle_num,const  double max_num)
 {
     printf("Сортировка по возрастанию: %.2lf, %.2lf, %.2lf\n", min_num, middle_num, max_num);
     return 0;
 }
 
-double getStrypeDOWN(double min_num, double middle_num, double max_num)
+double getStrypeDOWN(const double min_num, const double middle_num, const double max_num)
 {
     printf("Сортировка по убыванию: %.2lf, %.2lf, %.2lf\n", max_num, middle_num, min_num);
     return 0;
