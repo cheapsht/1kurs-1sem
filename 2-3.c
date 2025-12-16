@@ -8,7 +8,7 @@
  * @param max_num максимальное значение из трех
  * @return возвращает сортировку в порядке возрастания
  */
-double getStrypeUP(double min_num, double middle_num, double max_num);
+double getStrypeUP(const double min_num, const double middle_num, const double max_num);
 /**
  * @brief сортирует числа в порядке убывания
  * @param min_num минимальное значение из трех
@@ -16,7 +16,7 @@ double getStrypeUP(double min_num, double middle_num, double max_num);
  * @param max_num максимальное значение из трех
  * @return возвращает сортировку в порядке убывания
  */
-double getStrypeDOWN(double min_num, double middle_num, double max_num);
+double getStrypeDOWN(const double min_num,const  double middle_num,const double max_num);
 /**
  * @brief считывает значение,
  * введенное с клавиатуры с проверкой ввода
