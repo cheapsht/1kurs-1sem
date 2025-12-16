@@ -8,7 +8,7 @@
  * @param max_num максимальное значение из трех
  * @return возвращает сортировку в порядке возрастания
  */
-double getStrypeUP(const double min_num, const double middle_num, const double max_num);
+void getStrypeUP(const double min_num, const double middle_num, const double max_num);
 /**
  * @brief сортирует числа в порядке убывания
  * @param min_num минимальное значение из трех
@@ -16,7 +16,7 @@ double getStrypeUP(const double min_num, const double middle_num, const double m
  * @param max_num максимальное значение из трех
  * @return возвращает сортировку в порядке убывания
  */
-double getStrypeDOWN(const double min_num,const  double middle_num,const double max_num);
+void getStrypeDOWN(const double min_num,const  double middle_num,const double max_num);
 /**
  * @brief считывает значение,
  * введенное с клавиатуры с проверкой ввода
@@ -52,7 +52,7 @@ int main(void)
     else
     {
         printf("ln(x) находится за пределами области значений");
-        abort();
+        return 1
     }
     double max_num = fmax(fmax(x1, x2), x3);
     double min_num = fmin(fmin(x1, x2), x3);
@@ -70,22 +70,19 @@ int main(void)
             break;
         default:
             printf("Неправильный выбор");
-            abort();
+            return 1
     }
-
-
+return 0;
 }
 
-double getStrypeUP(const double min_num, const double middle_num,const  double max_num)
+void getStrypeUP(const double min_num, const double middle_num,const  double max_num)
 {
     printf("Сортировка по возрастанию: %.2lf, %.2lf, %.2lf\n", min_num, middle_num, max_num);
-    return 0;
 }
 
-double getStrypeDOWN(const double min_num, const double middle_num, const double max_num)
+void getStrypeDOWN(const double min_num, const double middle_num, const double max_num)
 {
     printf("Сортировка по убыванию: %.2lf, %.2lf, %.2lf\n", max_num, middle_num, min_num);
-    return 0;
 }
 double getValue()
 
