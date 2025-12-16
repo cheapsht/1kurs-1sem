@@ -2,6 +2,7 @@
 #include <math.h>
 #include <stdbool.h>
 #include <stdlib.h>
+#include <float.h>
 /**
  * @brief считывает целое значение с клавиатуры в проверкой ввода
  * @return возвращает считанное значение
@@ -53,7 +54,7 @@ double findDistance(double m1_ton, double m2_ton, double F)
     double m1_kg = m1_ton * 1000;
     double m2_kg = m2_ton * 1000;
     double force = F * 1e-5;
-    if (force == 0)
+    if (fabs(force) < DBL_EPSILON )
     {
         printf("Ошибка: сила не может быть нулевой!\n");
         abort();
